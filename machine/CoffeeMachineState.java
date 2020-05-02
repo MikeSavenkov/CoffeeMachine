@@ -61,7 +61,7 @@ public class CoffeeMachineState {
                 milk + " of milk\n" +
                 coffeeBeans + " of coffee beans\n" +
                 cups + " of disposable cups\n" +
-                money + " of money";
+                "$" + money + " of money\n";
     }
     public void printState() {
         System.out.println(this.toString());

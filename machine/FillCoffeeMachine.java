@@ -21,6 +21,5 @@ public class FillCoffeeMachine {
         state.setCoffeeBeans(state.getCoffeeBeans() + coffeeBeans);
         state.setCups(state.getCups() + cups);
 
-        state.printState();
     }
 }
