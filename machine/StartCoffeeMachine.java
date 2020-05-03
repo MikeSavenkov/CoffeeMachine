@@ -12,40 +12,42 @@ public class StartCoffeeMachine {
         boolean flag = true;
         while (flag) {
             System.out.println("Write action (buy, fill, take, remaining, exit):");
-            String action = scanner.nextLine();
+            CoffeeMachineState.EnumActions action =
+                    CoffeeMachineState.EnumActions.valueOf(scanner.nextLine().toUpperCase());
             switch (action) {
-                case "buy":
+                case BUY:
                     System.out.println();
                     System.out.println("What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino, " +
                             "back - to main menu:");
-                    String coffee = scanner.nextLine();
+                    CoffeeMachineState.KindsOfCoffee coffee =
+                            CoffeeMachineState.KindsOfCoffee.findByNumber(scanner.nextLine());
                     switch (coffee) {
-                        case "1":
+                        case ESPRESSO:
                             buyCoffee.buyEspresso(state);
                             break;
-                        case "2":
+                        case LATTE:
                             buyCoffee.buyLatte(state);
                             break;
-                        case "3":
+                        case CAPPUCCINO:
                             buyCoffee.buyCappuccino(state);
                             break;
-                        case "back":
+                        default:
                             break;
                     }
                     break;
-                case "fill":
+                case FILL:
                     fill.fill(state);
                     System.out.println();
                     break;
-                case "take":
+                case TAKE:
                     System.out.println();
                     takeMoney(state);
                     break;
-                case "remaining":
+                case REMAINING:
                     System.out.println();
                     state.printState();
                     break;
-                case "exit":
+                case EXIT:
                     flag = false;
             }
         }
@@ -56,7 +58,4 @@ public class StartCoffeeMachine {
         state.setMoney(0);
 
     }
-
-
-
 }

@@ -67,4 +67,28 @@ public class CoffeeMachineState {
         System.out.println(this.toString());
     }
 
+    enum EnumActions {
+
+        BUY, FILL, TAKE, REMAINING, EXIT
+    }
+
+    enum KindsOfCoffee {
+        ESPRESSO("1"), LATTE("2"), CAPPUCCINO("3"), BACK("4");
+
+        private final String numberOfCoffee;
+
+        KindsOfCoffee(String numberOfCoffee) {
+            this.numberOfCoffee = numberOfCoffee;
+        }
+
+        public static KindsOfCoffee findByNumber(String numberOfCoffee) {
+            for (KindsOfCoffee coffee : values()) {
+                if (coffee.numberOfCoffee.equals(numberOfCoffee)) {
+                    return coffee;
+                }
+            }
+            return BACK;
+        }
+    }
+
 }
