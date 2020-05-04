@@ -1,9 +1,12 @@
 package machine;
 
+import machine.interfaces.Fill;
+
 import java.util.Scanner;
 
-public class FillCoffeeMachine {
+public class FillCoffeeMachine implements Fill {
 
+    @Override
     public void fill(CoffeeMachineState state) {
         Scanner scanner = new Scanner(System.in);
 

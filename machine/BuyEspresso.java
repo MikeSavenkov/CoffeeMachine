@@ -1,5 +1,7 @@
 package machine;
 
+import machine.interfaces.BuyCoffee;
+
 public class BuyEspresso implements BuyCoffee {
 
     @Override

@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class StartCoffeeMachine {
 
-    FillCoffeeMachine fill = new FillCoffeeMachine();
+
     public void start(CoffeeMachineState state) {
         Scanner scanner = new Scanner(System.in);
         boolean flag = true;
@@ -17,12 +17,12 @@ public class StartCoffeeMachine {
                     chooseCoffee(state);
                     break;
                 case FILL:
-                    fill.fill(state);
+                    new FillCoffeeMachine().fill(state); // FillCoffeeMachine fill = fill(state);
                     System.out.println();
                     break;
                 case TAKE:
                     System.out.println();
-                    takeMoney(state);
+                    new TakeMoney().takeMoney(state);
                     break;
                 case REMAINING:
                     System.out.println();
@@ -34,11 +34,7 @@ public class StartCoffeeMachine {
         }
     }
 
-    void takeMoney(CoffeeMachineState state) {
-        System.out.printf("I gave you $%d\n", state.getMoney());
-        state.setMoney(0);
 
-    }
 
     void chooseCoffee(CoffeeMachineState state) {
 
